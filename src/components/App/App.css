@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.playButton {
+  margin-top: 100px;
+}
