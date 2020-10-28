@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Tandem Trivia - Code Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Specs
+* JavaScript
+* React
+* Firebase
+* Bootstrap
+* Github Projects for planning
 
-## Available Scripts
+## Technologies Used
+* HTML5, CSS, JavaScript
+* [Bootstrap 4.5.3](https://getbootstrap.com/) for styling
+* [React 17.0.1](https://reactjs.org/) for core app functionality
+* [Firebase](https://firebase.google.com/) for hosting
 
-In the project directory, you can run:
+## Description
+Tandem Trivia is an application built to help uers improve their tivia knowledge. Each round is 10 questions, but users are not limited to only playing one round. If a user chooses to continue to play, their total score for all rounds will be tracked as well.
 
-### `yarn start`
+* Questions are given in a multiple choice format.
+* The correct answer is displayed after each question.
+* The total score for the round as well as the total score for all rounds is displayed at the end of 10 questions.
+* Responsively styled so Tandem Trivia can be played on the go!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
+Landing page:
+![Main View]()
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Live Hosted Demo
+[View the Project Here](https://tandem-trivia.web.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Run
+* Clone down this project from [GitHub](https://github.com/LaCollins/tandemtrivia)
+* Navigate to project folder and type `npm install` in the terminal to install dependencies.
+* type `npm start` to run.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors
+[Laura Collins](https://github.com/LaCollins)
