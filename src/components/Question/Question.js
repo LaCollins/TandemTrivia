@@ -3,9 +3,8 @@ import data from '../../data/Apprentice_TandemFor400_Data.json';
 import SingleQuestion from '../SingleQuestion/SingleQuestion';
 import './Question.css';
 
-function Question() {
+function Question(props) {
     const [score, setScore] = useState(0);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
     let [quizArray, setQuizArray] = useState([]);
     let [correctAnswer, setCorrectAnswer] = useState('');
     let [wrongAnswer, setWrongAnswer] = useState(false);
@@ -22,24 +21,25 @@ function Question() {
 
     function updateCurrentQuestion(e) {
         e.preventDefault();
-        setCurrentQuestion(currentQuestion + 1);
+        props.setCurrentQuestion(props.currentQuestion + 1);
         setCorrectAnswer(correctAnswer = '')
+        setWrongAnswer(wrongAnswer = false);
     }
 
     function addScore(answer) {
         setScore(score +1);
-        setCorrectAnswer(correctAnswer = answer.selectedAnswer);
+        setCorrectAnswer(correctAnswer = answer);
+        setWrongAnswer(wrongAnswer = false);
     }
 
     function wrongAns(answer) {
         setWrongAnswer(wrongAnswer = true);
-        setCorrectAnswer(correctAnswer = answer.selectedAnswer);
+        setCorrectAnswer(correctAnswer = answer);
     }
 
     useEffect(() => {
         if (quizArray !== 10) {
             getQuestions();
-            console.error(quizArray);
         } 
     }, [])
 
@@ -54,9 +54,9 @@ function Question() {
                 <button onClick={updateCurrentQuestion}>Next Question</button>
             </div>)
           : (<div>
-              <h1>Question #{currentQuestion+1}</h1>
-                {quizArray.length < 1 || currentQuestion === 10 ? ('')
-                : (<SingleQuestion quiz={quizArray[currentQuestion]} updateCurrentQuestion={updateCurrentQuestion} addScore={addScore} wrongAns={wrongAns} />)
+              <h1>Question #{props.currentQuestion+1}</h1>
+                {quizArray.length < 1 || props.currentQuestion === 10 ? ('')
+                : (<SingleQuestion quiz={quizArray[props.currentQuestion]} updateCurrentQuestion={updateCurrentQuestion} addScore={addScore} wrongAns={wrongAns} />)
                 }
           </div>)}
       </div>

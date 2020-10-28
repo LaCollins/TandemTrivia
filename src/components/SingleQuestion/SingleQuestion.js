@@ -18,10 +18,10 @@ function SingleQuestion(props) {
     }
 
     function selectAnswer(e) {
-        const selectedAnswer = e.currentTarget.value;
-        if (selectedAnswer === quiz.correct) {
+        const userAnswer = e.currentTarget.value;
+        setSelectedAnswer(selectedAnswer = quiz.correct)
+        if (userAnswer === quiz.correct) {
             setCorrect(correct = true);
-            setSelectedAnswer({ selectedAnswer })
         }
     }
 

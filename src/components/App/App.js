@@ -5,6 +5,7 @@ import Question from '../Question/Question';
 
 function App() {
   let [playing, setPlaying] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   return (
     <div className="App">
@@ -12,7 +13,7 @@ function App() {
         <h1>Welcome to Tandem Trivia!</h1>
       </header>
       { !playing ? (<button className="btn btn-info playButton" onClick={()=> setPlaying(playing = true)}>Play!</button>)
-        : (<Question />)}
+        : (<Question currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />)}
     </div>
   );
 }
