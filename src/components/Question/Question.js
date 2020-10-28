@@ -31,7 +31,8 @@ function Question(props) {
 
     //adds the score and changes state of answer to "correct".
     function addScore(answer) {
-        props.setScore(props.score +1);
+        props.setScore(props.score + 1);
+        props.setTotalScore(props.totalScore + 1);
         setCorrectAnswer(correctAnswer = answer);
         setWrongAnswer(wrongAnswer = false);
         setCorrect(correct = true);

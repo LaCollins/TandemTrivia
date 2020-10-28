@@ -6,13 +6,15 @@ import Round from '../Round/Round';
 function App() {
   let [playing, setPlaying] = useState(false);
   let [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
+  let [score, setScore] = useState(0);
   const [numRound, setNumRound] = useState(1);
 
   // resets the currentQuestion count and adds to the number of rounds
   function resetGame() {
     setCurrentQuestion(currentQuestion = 0);
     setNumRound(numRound + 1);
+    setScore(score = 0);
 }
 
   return (
@@ -27,6 +29,8 @@ function App() {
           score={score} setScore={setScore}
           resetGame={resetGame}
           numRound={numRound}
+          setTotalScore={setTotalScore}
+          totalScore={totalScore}
           />)}
     </div>
   );
