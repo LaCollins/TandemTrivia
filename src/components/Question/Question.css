@@ -1,3 +1,11 @@
 .Question {
     margin-top: 100px;
 }
+
+.answer {
+    color: #37b937;
+}
+
+.wrong {
+    color: red;
+}
