@@ -49,4 +49,4 @@ Score Page - Multiple Rounds:
 * type `npm start` to run.
 
 ## Contributors
-[Laura Collins](https://github.com/LaCollins)
+[Laura Collins](https://lauracollins.dev)
