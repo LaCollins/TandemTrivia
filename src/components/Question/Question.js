@@ -4,10 +4,11 @@ import SingleQuestion from '../SingleQuestion/SingleQuestion';
 import './Question.css';
 
 function Question(props) {
-    const [score, setScore] = useState(0);
+    // const [score, setScore] = useState(0);
     let [quizArray, setQuizArray] = useState([]);
     let [correctAnswer, setCorrectAnswer] = useState('');
     let [wrongAnswer, setWrongAnswer] = useState(false);
+    let [correct, setCorrect] = useState(false);
 
     function getQuestions() { //selects 10 questions and shuffles them
         const newArray = [];
@@ -27,31 +28,35 @@ function Question(props) {
     }
 
     function addScore(answer) {
-        setScore(score +1);
+        props.setScore(props.score +1);
         setCorrectAnswer(correctAnswer = answer);
         setWrongAnswer(wrongAnswer = false);
+        setCorrect(correct = true);
     }
 
     function wrongAns(answer) {
         setWrongAnswer(wrongAnswer = true);
         setCorrectAnswer(correctAnswer = answer);
+        setCorrect(correct = false);
     }
 
     useEffect(() => {
-        if (quizArray !== 10) {
+        if (quizArray !== 10 || props.numRound > 1) {
             getQuestions();
         } 
     }, [])
 
     return (
       <div className="Question">
-          { wrongAnswer ? (<h4>Sorry! That's incorrect!</h4>)
+          { wrongAnswer ? (<h4 className="wrong">Sorry! That's incorrect!</h4>)
+          : ('')}
+          { correct ? (<h4 className="answer">Way to go!</h4>)
           : ('')}
           {correctAnswer !== '' ? (
             <div>
-                <h4>The Correct Answer Is: {correctAnswer}</h4>
-                <h5>Your Score Is: {score}</h5>
-                <button onClick={updateCurrentQuestion}>Next Question</button>
+                <h4 className="answer">The Correct Answer Is: {correctAnswer}</h4>
+                <h5>Your Score Is: {props.score}</h5>
+                <button className="btn btn-info" onClick={updateCurrentQuestion}>Next Question</button>
             </div>)
           : (<div>
               <h1>Question #{props.currentQuestion+1}</h1>
