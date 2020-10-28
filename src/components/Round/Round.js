@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+
 import './Round.css';
 import Question from '../Question/Question';
 
@@ -14,12 +14,12 @@ function Round(props) {
             numRound={props.numRound}
             />)
             : (
-            <div className="endOfGame">
-                <h4>Congrats!</h4>
+            <div className="endOfGame mt-5 mb-2">
+                <h3>Congrats!</h3>
                 <h5>You have finished the game!</h5>
                 <h5>You have played {props.numRound} rounds.</h5>
                 <h5>You got {props.score} out of {props.numRound}0 correct!</h5>
-                <button onClick={() => props.resetGame()}>Play Again?</button>
+                <button className="btn btn-info mt-5" onClick={() => props.resetGame()}>Play Again?</button>
             </div>)}
         </div>
     )

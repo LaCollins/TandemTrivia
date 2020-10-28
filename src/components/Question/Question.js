@@ -25,6 +25,7 @@ function Question(props) {
         props.setCurrentQuestion(props.currentQuestion + 1);
         setCorrectAnswer(correctAnswer = '')
         setWrongAnswer(wrongAnswer = false);
+        setCorrect(correct = false);
     }
 
     function addScore(answer) {
@@ -56,7 +57,7 @@ function Question(props) {
             <div>
                 <h4 className="answer">The Correct Answer Is: {correctAnswer}</h4>
                 <h5>Your Score Is: {props.score}</h5>
-                <button className="btn btn-info" onClick={updateCurrentQuestion}>Next Question</button>
+                <button className="btn btn-info mt-5" onClick={updateCurrentQuestion}>Next Question</button>
             </div>)
           : (<div>
               <h1>Question #{props.currentQuestion+1}</h1>
