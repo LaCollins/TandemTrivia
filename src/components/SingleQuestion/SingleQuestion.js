@@ -23,15 +23,19 @@ function SingleQuestion(props) {
         setSelectedAnswer(selectedAnswer = quiz.correct)
         if (userAnswer === quiz.correct) {
             setCorrect(correct = true);
+        } else {
+            setCorrect(correct = false);
         }
     }
 
     function checkAnswer(e) {
         e.preventDefault();
-        if (correct) {
-            props.addScore(selectedAnswer);
-        } else {
-            props.wrongAns(selectedAnswer);
+        if (selectedAnswer !== '') {
+            if (correct) {
+                props.addScore(selectedAnswer);
+            } else {
+                props.wrongAns(selectedAnswer);
+            }
         }
     }
 
@@ -46,10 +50,10 @@ function SingleQuestion(props) {
             <div>
                 <form>
                     <div className="options">
-                        {answers.map((answer) => (<div className="d-flex justify-content-left singleAnswer"><input key={answer} type="radio" id={answer} name="selectedAnswer" value={answer} onChange={selectAnswer} />
+                        {answers.map((answer) => (<div key={answer} className="d-flex justify-content-left singleAnswer"><input type="radio" id={answer} name="selectedAnswer" value={answer} onChange={selectAnswer} />
                         <label className="ml-2" htmlFor={answer}>{answer}</label></div>))}
                     </div>
-                    <button className="btn btn-info" onClick={(e) => checkAnswer(e)}>Submit Answer</button>
+                    <button className="btn btn-info mt-5" onClick={(e) => checkAnswer(e)}>Submit Answer</button>
                 </form>
             </div>)
             : ('')}

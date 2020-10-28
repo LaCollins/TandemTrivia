@@ -7,6 +7,9 @@
   border: solid darkcyan 3px;
   margin-top: 15px;
   box-shadow: 10px 5px 5px darkgray;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .header {
