@@ -7,6 +7,8 @@ function Question() {
     const [score, setScore] = useState(0);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     let [quizArray, setQuizArray] = useState([]);
+    let [correctAnswer, setCorrectAnswer] = useState('');
+    let [wrongAnswer, setWrongAnswer] = useState(false);
 
     function getQuestions() { //selects 10 questions and shuffles them
         const newArray = [];
@@ -21,6 +23,17 @@ function Question() {
     function updateCurrentQuestion(e) {
         e.preventDefault();
         setCurrentQuestion(currentQuestion + 1);
+        setCorrectAnswer(correctAnswer = '')
+    }
+
+    function addScore(answer) {
+        setScore(score +1);
+        setCorrectAnswer(correctAnswer = answer.selectedAnswer);
+    }
+
+    function wrongAns(answer) {
+        setWrongAnswer(wrongAnswer = true);
+        setCorrectAnswer(correctAnswer = answer.selectedAnswer);
     }
 
     useEffect(() => {
@@ -32,11 +45,20 @@ function Question() {
 
     return (
       <div className="Question">
-        <h1>Question #{currentQuestion+1}</h1>
-        {quizArray.length < 1 || currentQuestion === 10 ? ('')
-        : (<SingleQuestion quiz={quizArray[currentQuestion]} updateCurrentQuestion={updateCurrentQuestion} />)
-    }
-        {/* <button onClick={() => setCurrentQuestion(currentQuestion + 1)}>Test</button> */}
+          { wrongAnswer ? (<h4>Sorry! That's incorrect!</h4>)
+          : ('')}
+          {correctAnswer !== '' ? (
+            <div>
+                <h4>The Correct Answer Is: {correctAnswer}</h4>
+                <h5>Your Score Is: {score}</h5>
+                <button onClick={updateCurrentQuestion}>Next Question</button>
+            </div>)
+          : (<div>
+              <h1>Question #{currentQuestion+1}</h1>
+                {quizArray.length < 1 || currentQuestion === 10 ? ('')
+                : (<SingleQuestion quiz={quizArray[currentQuestion]} updateCurrentQuestion={updateCurrentQuestion} addScore={addScore} wrongAns={wrongAns} />)
+                }
+          </div>)}
       </div>
     );
   }

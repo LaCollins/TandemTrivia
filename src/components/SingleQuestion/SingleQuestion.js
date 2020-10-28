@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+
 function SingleQuestion(props) {
     const { quiz } = props;
     let [answers, setAnswers] = useState([]);
+    let [correct, setCorrect] = useState(false);
+    let [selectedAnswer, setSelectedAnswer] = useState('');
 
 
     function getAnswers() {
@@ -12,6 +15,23 @@ function SingleQuestion(props) {
             allAnswers.sort(() => Math.random() - 0.5); // shuffles the answers
         }
         setAnswers(answers = allAnswers)
+    }
+
+    function selectAnswer(e) {
+        const selectedAnswer = e.currentTarget.value;
+        if (selectedAnswer === quiz.correct) {
+            setCorrect(correct = true);
+            setSelectedAnswer({ selectedAnswer })
+        }
+    }
+
+    function checkAnswer(e) {
+        e.preventDefault();
+        if (correct) {
+            props.addScore(selectedAnswer);
+        } else {
+            props.wrongAns(selectedAnswer);
+        }
     }
 
     useEffect(() => {
@@ -24,15 +44,9 @@ function SingleQuestion(props) {
             {answers.length > 0 ? (
             <div>
                 <form>
-                    <input type="radio" id={answers[0]} name="selectedAnswer" value={answers[0]}/>
-                    <label for={answers[0]}>{answers[0]}</label><br />
-                    <input type="radio" id={answers[1]} name="selectedAnswer" value={answers[1]}/>
-                    <label for={answers[1]}>{answers[1]}</label><br />
-                    <input type="radio" id={answers[2]} name="selectedAnswer" value={answers[2]}/>
-                    <label for={answers[2]}>{answers[2]}</label><br />
-                    <input type="radio" id={answers[3]} name="selectedAnswer" value={answers[3]}/>
-                    <label for={answers[3]}>{answers[3]}</label><br />
-                    <button onClick={(e) => props.updateCurrentQuestion(e)}>Submit Answer</button>
+                    {answers.map((answer) => (<div><input type="radio" id={answer} name="selectedAnswer" value={answer} onChange={selectAnswer} key={answer} />
+                    <label htmlFor={answer}>{answer}</label></div>))}
+                    <button onClick={(e) => checkAnswer(e)}>Submit Answer</button>
                 </form>
             </div>)
             : ('')}
