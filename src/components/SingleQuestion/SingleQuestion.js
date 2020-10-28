@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './SingleQuestion.css';
 
 
 function SingleQuestion(props) {
@@ -44,9 +45,11 @@ function SingleQuestion(props) {
             {answers.length > 0 ? (
             <div>
                 <form>
-                    {answers.map((answer) => (<div><input type="radio" id={answer} name="selectedAnswer" value={answer} onChange={selectAnswer} key={answer} />
-                    <label htmlFor={answer}>{answer}</label></div>))}
-                    <button onClick={(e) => checkAnswer(e)}>Submit Answer</button>
+                    <div className="options">
+                        {answers.map((answer) => (<div className="d-flex justify-content-left singleAnswer"><input key={answer} type="radio" id={answer} name="selectedAnswer" value={answer} onChange={selectAnswer} />
+                        <label className="ml-2" htmlFor={answer}>{answer}</label></div>))}
+                    </div>
+                    <button className="btn btn-info" onClick={(e) => checkAnswer(e)}>Submit Answer</button>
                 </form>
             </div>)
             : ('')}

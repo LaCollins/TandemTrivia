@@ -15,8 +15,10 @@ function App() {
 }
 
   return (
-    <div className="App container">
-      <h1>Welcome to Tandem Trivia!</h1>
+    <div className="App container p-0">
+      <div className="header p-3">
+        <h1>Welcome to Tandem Trivia!</h1>
+      </div>
         { !playing ? (<button className="btn btn-info playButton" onClick={()=> setPlaying(playing = true)}>Play!</button>)
           : (<Round
           currentQuestion={currentQuestion}

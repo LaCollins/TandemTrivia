@@ -25,6 +25,7 @@ function Question(props) {
         props.setCurrentQuestion(props.currentQuestion + 1);
         setCorrectAnswer(correctAnswer = '')
         setWrongAnswer(wrongAnswer = false);
+        setCorrect(correct = false);
     }
 
     function addScore(answer) {
