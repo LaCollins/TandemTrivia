@@ -23,8 +23,22 @@ Tandem Trivia is an application built to help uers improve their tivia knowledge
 
 ## Screenshots
 Landing page:
-![Main View]()
+![Main View](https://github.com/LaCollins/tandemtrivia/raw/master/screenshots/landingPage.PNG)
 
+Question view:
+![Question view](https://github.com/LaCollins/tandemtrivia/raw/master/screenshots/questionView.PNG)
+
+Wrong Answer:
+![Wrong Answer](https://github.com/LaCollins/tandemtrivia/raw/master/screenshots/wrongAnswer.PNG)
+
+Correct Answer:
+![Correct Answer](https://github.com/LaCollins/tandemtrivia/raw/master/screenshots/correctAnswer.PNG)
+
+Score Page:
+![Score Page](https://github.com/LaCollins/tandemtrivia/raw/master/screenshots/scorePage.PNG)
+
+Score Page - Multiple Rounds:
+![Score Page - Multiple Rounds](https://github.com/LaCollins/tandemtrivia/raw/master/screenshots/round2.PNG)
 
 ## Live Hosted Demo
 [View the Project Here](https://tandem-trivia.web.app/)
