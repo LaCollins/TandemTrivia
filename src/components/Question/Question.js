@@ -8,7 +8,7 @@ function Question() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     let [quizArray, setQuizArray] = useState([]);
 
-    function getQuestions() {
+    function getQuestions() { //selects 10 questions and shuffles them
         const newArray = [];
         for (let i = 0; i <= 9; i++) {
             const randomNumber = Math.floor(Math.random() * Math.floor(data.length));
@@ -18,16 +18,25 @@ function Question() {
         setQuizArray(quizArray = newArray);
     }
 
+    function updateCurrentQuestion(e) {
+        e.preventDefault();
+        setCurrentQuestion(currentQuestion + 1);
+    }
+
     useEffect(() => {
-        if (quizArray.length !== 10) {
+        if (quizArray !== 10) {
             getQuestions();
-        }
-    })
+            console.error(quizArray);
+        } 
+    }, [])
 
     return (
       <div className="Question">
         <h1>Question #{currentQuestion+1}</h1>
-        <SingleQuestion quiz={quizArray[currentQuestion]} />
+        {quizArray.length < 1 || currentQuestion === 10 ? ('')
+        : (<SingleQuestion quiz={quizArray[currentQuestion]} updateCurrentQuestion={updateCurrentQuestion} />)
+    }
+        {/* <button onClick={() => setCurrentQuestion(currentQuestion + 1)}>Test</button> */}
       </div>
     );
   }
