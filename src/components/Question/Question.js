@@ -4,13 +4,13 @@ import SingleQuestion from '../SingleQuestion/SingleQuestion';
 import './Question.css';
 
 function Question(props) {
-    // const [score, setScore] = useState(0);
     let [quizArray, setQuizArray] = useState([]);
     let [correctAnswer, setCorrectAnswer] = useState('');
     let [wrongAnswer, setWrongAnswer] = useState(false);
     let [correct, setCorrect] = useState(false);
 
-    function getQuestions() { //selects 10 questions and shuffles them
+    //selects 10 questions and shuffles them
+    function getQuestions() {
         const newArray = [];
         for (let i = 0; i <= 9; i++) {
             const randomNumber = Math.floor(Math.random() * Math.floor(data.length));
@@ -20,6 +20,7 @@ function Question(props) {
         setQuizArray(quizArray = newArray);
     }
 
+    // Updates the question count
     function updateCurrentQuestion(e) {
         e.preventDefault();
         props.setCurrentQuestion(props.currentQuestion + 1);
@@ -28,6 +29,7 @@ function Question(props) {
         setCorrect(correct = false);
     }
 
+    //adds the score and changes state of answer to "correct".
     function addScore(answer) {
         props.setScore(props.score +1);
         setCorrectAnswer(correctAnswer = answer);
@@ -35,6 +37,7 @@ function Question(props) {
         setCorrect(correct = true);
     }
 
+    // changes state of wrong answer
     function wrongAns(answer) {
         setWrongAnswer(wrongAnswer = true);
         setCorrectAnswer(correctAnswer = answer);
@@ -42,6 +45,7 @@ function Question(props) {
     }
 
     useEffect(() => {
+        // checks if a quizArray has been built or if the user is continuing to play a new round - builds quizArray
         if (quizArray !== 10 || props.numRound > 1) {
             getQuestions();
         } 

@@ -9,6 +9,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [numRound, setNumRound] = useState(1);
 
+  // resets the currentQuestion count and adds to the number of rounds
   function resetGame() {
     setCurrentQuestion(currentQuestion = 0);
     setNumRound(numRound + 1);

@@ -8,7 +8,7 @@ function SingleQuestion(props) {
     let [correct, setCorrect] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState('');
 
-
+    // adds all the answers to one array and shuffles them
     function getAnswers() {
         const allAnswers = [];
         if (quiz !== undefined) {
@@ -18,6 +18,7 @@ function SingleQuestion(props) {
         setAnswers(answers = allAnswers)
     }
 
+    // checks if selected answer is correct
     function selectAnswer(e) {
         const userAnswer = e.currentTarget.value;
         setSelectedAnswer(selectedAnswer = quiz.correct)
@@ -28,6 +29,7 @@ function SingleQuestion(props) {
         }
     }
 
+    // submits answer and adjusts score
     function checkAnswer(e) {
         e.preventDefault();
         if (selectedAnswer !== '') {
