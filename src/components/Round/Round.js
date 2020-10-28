@@ -4,6 +4,7 @@ import Question from '../Question/Question';
 
 function Round(props) {
 
+    // Checks count of question and changes view according to if a round is complete or not.
     return(
         <div className="Round">
             {props.currentQuestion < 10 ? (<Question
